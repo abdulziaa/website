@@ -32,13 +32,11 @@ jobs:
         uses: plasmicapp/plasmic-action@master
         with:
           run: build
-          branch: ${{ github.event.client_payload.data.branch }}
-          directory: ${{ github.event.client_payload.data.directory }}
-          platform: ${{ github.event.client_payload.data.platform }}
+          branch: main
           skip_if_plasmic: true
       - id: gh-pages
         name: Publish to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+        uses: JamesIves/github-pages-deploy-action
         if: ${{ steps.build.outputs.publish_dir }}
         with:
           branch: gh-pages
