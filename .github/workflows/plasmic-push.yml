@@ -33,6 +33,8 @@ jobs:
         with:
           run: build
           branch: main
+          directory: ${{ github.event.client_payload.data.directory }}
+          platform: ${{ github.event.client_payload.data.platform }}
           skip_if_plasmic: true
       - id: gh-pages
         name: Publish to GitHub Pages
